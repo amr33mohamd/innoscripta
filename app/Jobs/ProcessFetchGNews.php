@@ -30,9 +30,9 @@ class ProcessFetchGNews implements ShouldQueue
      */
     public function handle(): void
     {
-        $response = Http::get('https://content.guardianapis.com/search', [
+        $response = Http::get(env('GUARDIAN_URL'), [
             'q' => 'debate',
-            'api-key' => 'test',
+            'api-key' => env('GUARDIAN_API_KEY'),
             'page-size' => 200,
             'page' => 1,
         ])->json();

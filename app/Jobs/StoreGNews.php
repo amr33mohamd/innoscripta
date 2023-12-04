@@ -41,7 +41,7 @@ class StoreGNews implements ShouldQueue
         // Log::info("Page {$this->source_id} - Articles fetched and stored successfully.");
 
 
-        $response = Http::get('https://content.guardianapis.com/search', [
+        $response = Http::get(env('GUARDIAN_URL'), [
             'q' => 'debate',
             'api-key' => env('GUARDIAN_API_KEY'),
             'page-size' => $this->page_size,
