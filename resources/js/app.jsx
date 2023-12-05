@@ -6,6 +6,7 @@ import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+import { ChakraProvider } from '@chakra-ui/react'
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -13,7 +14,11 @@ createInertiaApp({
     setup({ el, App, props }) {
         const root = createRoot(el);
 
-        root.render(<App {...props} />);
+        root.render(
+        <ChakraProvider>
+            <App {...props} ></App>
+        </ChakraProvider>
+            );
     },
     progress: {
         color: '#4B5563',

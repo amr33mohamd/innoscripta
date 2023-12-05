@@ -38,9 +38,9 @@ class ProcessFetchGNews implements ShouldQueue
         ])->json();
         //pages = 190 because this is test api max 
         $pages = 4;
-        $source_id = Source::where('name','The Guardian')->first()->id;
-        for($i = 1;$i <= $pages;$i++ ){
-            StoreGNews::dispatch($i,200,$source_id);
+        $source_id = Source::where('name', 'The Guardian')->first()->id;
+        for ($i = 1; $i <= $pages; $i++) {
+            StoreGNews::dispatch($i, 200, $source_id);
         }
     }
 }

@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('category')->default('Australia news');
+            $table->string('keywords')->nullable();
+            $table->unsignedBigInteger('source_id')->nullable();
+            $table->foreign('source_id')->references('id')->on('sources')->onDelete('set null');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
